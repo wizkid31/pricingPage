@@ -1,6 +1,6 @@
 import "./App.scss";
 //images import
-import Table from "./assets/images/Table.png";
+import croppedTable from "./assets/images/croppedTable.png";
 import Wave from "./assets/images/wave.png";
 //svg import
 import { ReactComponent as Person } from "./assets/svgs/person.svg";
@@ -18,13 +18,16 @@ import { useState } from "react";
 //bootstrap import
 import { Container, Row, Col } from "react-bootstrap";
 //material ui import
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 import InfoIcon from "@mui/icons-material/Info";
-import { AddSharp } from "@mui/icons-material";
+import { AddSharp, CenterFocusStrong } from "@mui/icons-material";
 import { Divider } from "@mui/material";
 import Checkbox, { checkboxClasses } from "@mui/material/Checkbox";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogContent";
 
 const App = () => {
   //use State
@@ -342,7 +345,7 @@ const App = () => {
             <Col>
               <AddSharp /> Additional Bulk Credits
               <InfoIcon
-                sx={{ fontSize: 15, mb: 0.5 }}
+                sx={{ fontSize: 18, mb: 0.5 }}
                 onClick={handleClickOpen}
               />
               <Dialog
@@ -350,9 +353,36 @@ const App = () => {
                 onClose={handleClose}
                 aria-describedby="alert-dialog-description"
               >
-                <DialogContent sx={{ p: 0 }}>
-                  <DialogContentText sx={{ backgroundColor: "#1C3B71" }}>
-                    <img src={Table} style={{ height: 500 }} alt="kjhjg" />
+                <DialogContent sx={{ p: 0, backgroundColor: "#1c3b71" }}>
+                  <DialogTitle
+                    sx={{
+                      textAlign: "center",
+                      fontFamily: "PlusJakartaSans-SemiBold",
+                      color: "#fff",
+                    }}
+                  >
+                    <h4>
+                      Additional Bulk Credits{" "}
+                      <IconButton
+                        aria-label="close"
+                        onClick={handleClose}
+                        sx={{
+                          position: "absolute",
+                          right: 10,
+                          top: 14,
+                          color: "#fff",
+                        }}
+                      >
+                        <CloseIcon />
+                      </IconButton>
+                    </h4>
+                  </DialogTitle>
+                  <DialogContentText sx={{ p: "0 1rem 1rem 1rem" }}>
+                    <img
+                      src={croppedTable}
+                      style={{ height: 500 }}
+                      alt="kjhjg"
+                    />
                   </DialogContentText>
                 </DialogContent>
               </Dialog>
@@ -401,7 +431,7 @@ const App = () => {
                     padding: "0.2rem 1rem",
                   }}
                 >
-                  ${price.toFixed(2)}
+                  ${Number(totalPrice).toFixed(2)}
                 </span>
               </div>
             </Col>
@@ -462,7 +492,6 @@ const App = () => {
                     <span
                       style={{
                         border: "1px solid #1c3b71",
-                        // fontSize: 20,
                       }}
                     >
                       <span
