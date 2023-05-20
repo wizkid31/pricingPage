@@ -121,7 +121,7 @@ const App = () => {
   return (
     <>
       <Row>
-        <img src={Wave} />
+        <img src={Wave} alt="kgkug" />
       </Row>
       <Container
         style={{
@@ -352,7 +352,7 @@ const App = () => {
               >
                 <DialogContent sx={{ p: 0 }}>
                   <DialogContentText sx={{ backgroundColor: "#1C3B71" }}>
-                    <img src={Table} style={{ height: 500 }} />
+                    <img src={Table} style={{ height: 500 }} alt="kjhjg" />
                   </DialogContentText>
                 </DialogContent>
               </Dialog>
