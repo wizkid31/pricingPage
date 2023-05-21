@@ -341,8 +341,14 @@ const App = () => {
             borderRight: "none",
           }}
         >
-          <Row style={{ padding: "1.5rem 1rem" }}>
-            <Col>
+          <Row
+            style={{
+              padding: "1.5rem 1rem",
+              fontFamily: "PlusJakartaSans-Medium",
+              fontSize: 20,
+            }}
+          >
+            <Col lg={{ span: 4 }}>
               <AddSharp /> Additional Bulk Credits
               <InfoIcon
                 sx={{ fontSize: 18, mb: 0.5 }}
@@ -387,8 +393,10 @@ const App = () => {
                 </DialogContent>
               </Dialog>
             </Col>
-            <Col>
-              <div style={{ float: "right" }}>
+            <Col style={{ textAlign: "right" }}>
+              {/* -------span-1-------- */}
+              <span style={{ marginRight: 15 }}>
+                {" "}
                 Quantity:
                 <input
                   type="number"
@@ -400,12 +408,13 @@ const App = () => {
                     textAlign: "center",
                     fontSize: 17,
                     color: "#616680",
+                    marginLeft: 5,
                   }}
                 />
-              </div>
-            </Col>
-            <Col style={{ fontSize: 17 }}>
-              <div style={{ float: "right" }}>
+              </span>
+              {/* --------span-2-------S */}
+              <span style={{ marginRight: 15 }}>
+                {" "}
                 Price/Credits:
                 <span
                   style={{
@@ -413,27 +422,27 @@ const App = () => {
                     background: "#616680",
                     color: "#fff",
                     padding: "0.2rem 1rem",
+                    marginLeft: 5,
                   }}
                 >
                   $ {price.toFixed(2)}
                 </span>
-              </div>
-            </Col>
-            <Col style={{ fontSize: 17 }}>
-              <div style={{ float: "right" }}>
-                {" "}
-                Total Price:
-                <span
-                  style={{
-                    border: "1px solid #1C3B71",
-                    background: "#1C3B71",
-                    color: "#fff",
-                    padding: "0.2rem 1rem",
-                  }}
-                >
-                  ${Number(totalPrice).toFixed(2)}
-                </span>
-              </div>
+              </span>
+              {/* --------span-2--------E */}
+              {/* --------span-3--------B */}
+              Total Price:
+              <span
+                style={{
+                  border: "1px solid #1C3B71",
+                  background: "#1C3B71",
+                  color: "#fff",
+                  padding: "0.2rem 1rem",
+                  marginLeft: 5,
+                }}
+              >
+                ${Number(totalPrice).toFixed(2)}
+              </span>
+              {/* ---------span-3-------E */}
             </Col>
           </Row>
         </Row>
@@ -482,7 +491,7 @@ const App = () => {
                       style={{
                         verticalAlign: "top",
                         marginTop: 7,
-                        display: "inline-block",
+                        // display: "inline-block",
                       }}
                     >
                       /User/Month
@@ -500,13 +509,19 @@ const App = () => {
                           textAlign: "center",
                           color: "#fff",
                           padding: "0rem 0.5rem",
+                          cursor: "pointer",
                         }}
                         onClick={decrementDiscover}
                       >
                         -
                       </span>
                       <span
-                        style={{ textAlign: "center", padding: "0rem 0.5rem" }}
+                        style={{
+                          textAlign: "center",
+                          padding: "0rem 0.5rem",
+                          display: "inline-block",
+                          width: 70,
+                        }}
                       >
                         {countDiscover}
                       </span>
@@ -516,6 +531,8 @@ const App = () => {
                           textAlign: "center",
                           color: "#fff",
                           padding: "0rem 0.5rem",
+                          // display: "inline-block",
+                          cursor: "pointer",
                         }}
                         onClick={incrementDiscover}
                       >
@@ -598,15 +615,20 @@ const App = () => {
                           background: "#1c3b71",
                           textAlign: "center",
                           color: "#fff",
-
                           padding: "0rem 0.5rem",
+                          cursor: "pointer",
                         }}
                         onClick={decrementProspect}
                       >
                         -
                       </span>
                       <span
-                        style={{ textAlign: "center", padding: "0rem 0.5rem" }}
+                        style={{
+                          textAlign: "center",
+                          padding: "0rem 0.5rem",
+                          display: "inline-block",
+                          width: 70,
+                        }}
                       >
                         {countProspect}
                       </span>
@@ -616,6 +638,7 @@ const App = () => {
                           textAlign: "center",
                           color: "#fff",
                           padding: "0rem 0.5rem",
+                          cursor: "pointer",
                         }}
                         onClick={incrementProspect}
                       >
@@ -699,7 +722,7 @@ const App = () => {
                           background: "#1c3b71",
                           textAlign: "center",
                           color: "#fff",
-
+                          cursor: "pointer",
                           padding: "0rem 0.5rem",
                         }}
                         onClick={decrementConnect}
@@ -707,7 +730,12 @@ const App = () => {
                         -
                       </span>
                       <span
-                        style={{ textAlign: "center", padding: "0rem 0.5rem" }}
+                        style={{
+                          textAlign: "center",
+                          padding: "0rem 0.5rem",
+                          display: "inline-block",
+                          width: 70,
+                        }}
                       >
                         {countConnect}
                       </span>
@@ -717,6 +745,7 @@ const App = () => {
                           textAlign: "center",
                           color: "#fff",
                           padding: "0rem 0.5rem",
+                          cursor: "pointer",
                         }}
                         onClick={incrementConnect}
                       >
