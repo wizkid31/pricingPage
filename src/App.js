@@ -21,7 +21,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import InfoIcon from "@mui/icons-material/Info";
-import { AddSharp, CenterFocusStrong } from "@mui/icons-material";
+import { AddSharp } from "@mui/icons-material";
 import { Divider } from "@mui/material";
 import Checkbox, { checkboxClasses } from "@mui/material/Checkbox";
 import Dialog from "@mui/material/Dialog";
