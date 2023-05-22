@@ -99,7 +99,7 @@ const App = () => {
     setCountConnect((prevCount) => prevCount + 1);
   };
   const decrementConnect = () => {
-    if (countProspect > 0) {
+    if (countConnect > 0) {
       setCountConnect((prevCount) => prevCount - 1);
     }
   };
@@ -111,9 +111,9 @@ const App = () => {
     let sum =
       7200 +
       Number(totalPrice) +
-      countConnect * 200 +
-      countProspect * 125 +
-      countDiscover * 50;
+      countConnect * 200 * 12 +
+      countProspect * 125 * 12 +
+      countDiscover * 50 * 12;
     if (checked === true) {
       console.log(checked);
       sum = sum + 10000;
