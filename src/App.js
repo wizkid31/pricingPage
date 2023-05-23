@@ -320,7 +320,7 @@ const App = () => {
                     <Col>
                       Advanced
                       <br />
-                      Research
+                      Search
                     </Col>
                   </Row>
                 </Col>
