@@ -32,7 +32,7 @@ import DialogTitle from "@mui/material/DialogContent";
 const App = () => {
   //use State
   const [open, setOpen] = useState(false);
-  const [quantity, setQuantity] = useState(0); //option
+  const [quantity, setQuantity] = useState(""); //option
   const [price, setPrice] = useState(0.0);
   const [countDiscover, setCountDiscover] = useState(0);
   const [countProspect, setCountProspect] = useState(0);
@@ -104,7 +104,7 @@ const App = () => {
     }
   };
   const sumRecurring = () => {
-    const calc = (countProspect + countConnect) * 500;
+    const calc = (countProspect + countConnect) * 500 * 12;
     return calc;
   };
   const calculateSum = () => {
@@ -208,7 +208,7 @@ const App = () => {
                     <Col>
                       10,000 Bulk
                       <br />
-                      Coins
+                      Credits
                     </Col>
                   </Row>
                 </Col>
@@ -886,7 +886,7 @@ const App = () => {
                     fontSize: 18,
                   }}
                 >
-                  {quantity}
+                  {quantity + Number(10000)}
                 </span>
               </Col>
             </Row>
@@ -920,7 +920,7 @@ const App = () => {
                     fontSize: 18,
                   }}
                 >
-                  {countDiscover}
+                  {countDiscover + 1}
                 </span>
               </Col>
             </Row>
