@@ -30,11 +30,23 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogContent";
 
 const App = () => {
+  // perks grid
+  const gridItems = [
+    { svg: <Person />, name: "1 License (Discover)" },
+    { svg: <Coin />, name: "10,000 Bulk Credits" },
+    { svg: <Phone />, name: "Mobile Phone Data" },
+    { svg: <Building />, name: "Multi-Source Intent" },
+    { svg: <Nucleus />, name: "Technographics" },
+    { svg: <Eye />, name: "Unlimited In-app views" },
+    { svg: <Puzzle />, name: "Chrome Extension" },
+    { svg: <Verified />, name: "Real-Time Verification" },
+    { svg: <Zoom />, name: "Advanced Search" },
+  ];
   //use State
   const [open, setOpen] = useState(false);
   const [quantity, setQuantity] = useState(""); //option
   const [price, setPrice] = useState(0.0);
-  const [countDiscover, setCountDiscover] = useState(0);
+  const [countDiscover, setCountDiscover] = useState(1);
   const [countProspect, setCountProspect] = useState(0);
   const [countConnect, setCountConnect] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -83,7 +95,7 @@ const App = () => {
     setCountDiscover((prevCount) => prevCount + 1);
   };
   const decrementDiscover = () => {
-    if (countDiscover > 0) {
+    if (countDiscover > 1) {
       setCountDiscover((prevCount) => prevCount - 1);
     }
   };
@@ -109,7 +121,7 @@ const App = () => {
   };
   const calculateSum = () => {
     let sum =
-      7200 +
+      6600 +
       Number(totalPrice) +
       countConnect * 200 * 12 +
       countProspect * 125 * 12 +
@@ -156,19 +168,6 @@ const App = () => {
               // paddingBotton: 0,
             }}
           >
-            <Row
-              style={{
-                fontFamily: "PlusJakartaSans-SemiBold",
-                fontSize: 25,
-                paddingTop: "2rem",
-                paddingBottom: "2rem",
-              }}
-            >
-              <Col>Base Plan(Annually):</Col>
-              <Col style={{ textAlign: "right", fontSize: 30 }}>
-                $7,200<sup>.00</sup>
-              </Col>
-            </Row>
             <Row
               style={{
                 textDecoration: "underline",
@@ -920,7 +919,7 @@ const App = () => {
                     fontSize: 18,
                   }}
                 >
-                  {countDiscover + 1}
+                  {countDiscover}
                 </span>
               </Col>
             </Row>
