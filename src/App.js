@@ -95,7 +95,7 @@ const App = () => {
     setCountDiscover((prevCount) => prevCount + 1);
   };
   const decrementDiscover = () => {
-    if (countDiscover > 1) {
+    if (countDiscover > 0) {
       setCountDiscover((prevCount) => prevCount - 1);
     }
   };
@@ -168,6 +168,16 @@ const App = () => {
               // paddingBotton: 0,
             }}
           >
+            <Row
+              style={{
+                fontFamily: "PlusJakartaSans-SemiBold",
+                fontSize: 25,
+                paddingTop: "2rem",
+                paddingBottom: "2rem",
+              }}
+            >
+              <Col>Base Plan(Annually):</Col>
+            </Row>
             <Row
               style={{
                 textDecoration: "underline",
