@@ -784,7 +784,7 @@ const App = () => {
                   >
                     2000
                   </span>
-                  Job Changee included (in Salesforce)
+                  Job Changes included (in Salesforce)
                 </li>
               </ul>
               {/* </Col> */}
