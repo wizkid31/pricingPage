@@ -12,6 +12,7 @@ import { ReactComponent as Zoom } from "./assets/svgs/zoom.svg";
 import { ReactComponent as Nucleus } from "./assets/svgs/nucleus.svg";
 import { ReactComponent as Eye } from "./assets/svgs/eye.svg";
 import { ReactComponent as Phone } from "./assets/svgs/phone.svg";
+import { ReactComponent as Header } from "./assets/svgs/Logo1.svg";
 
 //hooks import
 import { useState } from "react";
@@ -32,15 +33,30 @@ import DialogTitle from "@mui/material/DialogContent";
 const App = () => {
   // perks grid
   const gridItems = [
-    { svg: <Person />, name: "1 License (Discover)" },
-    { svg: <Coin />, name: "10,000 Bulk Credits" },
-    { svg: <Phone />, name: "Mobile Phone Data" },
-    { svg: <Building />, name: "Multi-Source Intent" },
-    { svg: <Nucleus />, name: "Technographics" },
-    { svg: <Eye />, name: "Unlimited In-app views" },
-    { svg: <Puzzle />, name: "Chrome Extension" },
-    { svg: <Verified />, name: "Real-Time Verification" },
-    { svg: <Zoom />, name: "Advanced Search" },
+    {
+      svg: <Person style={{ height: 45 }} />,
+      name: "1 License (Discover)",
+    },
+    {
+      svg: <Coin style={{ height: 45 }} />,
+      name: "10,000 Bulk Credits",
+    },
+    { svg: <Phone style={{ height: 45 }} />, name: "Mobile Phone Data" },
+    {
+      svg: <Building style={{ height: 45 }} />,
+      name: "Multi-Source Intent",
+    },
+    { svg: <Nucleus style={{ height: 45 }} />, name: "Technographics" },
+    {
+      svg: <Eye style={{ height: 45 }} />,
+      name: "Unlimited In-app views",
+    },
+    { svg: <Puzzle style={{ height: 45 }} />, name: "Chrome Extension" },
+    {
+      svg: <Verified style={{ height: 45 }} />,
+      name: "Real-Time Verification",
+    },
+    { svg: <Zoom style={{ height: 45 }} />, name: "Advanced Search" },
   ];
   //use State
   const [open, setOpen] = useState(false);
@@ -136,7 +152,9 @@ const App = () => {
   return (
     <>
       <Row>
-        <img src={Wave} alt="kgkug" />
+        <Col style={{ textAlign: "right", padding: "0rem 4.5rem" }}>
+          <Header style={{ height: 200, width: 250 }} />
+        </Col>
       </Row>
       <Container
         style={{
@@ -145,7 +163,7 @@ const App = () => {
           fontSize: 20,
           backgroundColor: "#fff",
           fontFamily: "PlusJakartaSans-Regular",
-          transform: "translateY(-175px)",
+          // transform: "translateY(-175px)",
         }}
       >
         {/* ---------------First Row Start------------------- */}
@@ -177,10 +195,14 @@ const App = () => {
               }}
             >
               <Col>Base Plan(Annually):</Col>
+              <Col style={{ textAlign: "right", fontSize: 30 }}>
+                $7,200<sup>.00</sup>
+              </Col>
             </Row>
             <Row
               style={{
-                textDecoration: "underline",
+                fontFamily: "PlusJakartaSans-SemiBold",
+                // textDecoration: "underline",
                 paddingBottom: "2rem",
               }}
             >
@@ -191,155 +213,83 @@ const App = () => {
               {/* ------------ Grid=> 1st Row Begin------------- */}
               <Row>
                 {/* ------------ Grid=> 1st Row 1st Column Begin------------- */}
-                <Col
-                  style={{ borderRight: "2px solid rgba(112,112,112,0.25)" }}
-                >
-                  <Row style={{ padding: "1rem 1.5rem" }}>
-                    <Col lg={{ span: 3 }}>
-                      <Person />
-                    </Col>
-                    <Col>
-                      1 User License
-                      <br />
-                      (Discover)
-                    </Col>
-                  </Row>
-                </Col>
-                {/* ------------ Grid=> 1st Row 1st Column End------------- */}
-                {/* ------------ Grid=> 1st Row 2nd Column Begin------------- */}
-                <Col
-                  style={{ borderRight: "2px solid rgba(112,112,112,0.25)" }}
-                >
-                  <Row style={{ padding: "1rem 1.5rem" }}>
-                    <Col lg={{ span: 3 }}>
-                      <Coin />
-                    </Col>
-                    <Col>
-                      10,000 Bulk
-                      <br />
-                      Credits
-                    </Col>
-                  </Row>
-                </Col>
-                {/* ------------ Grid=> 1st Row 2nd Column End------------- */}
-                {/* ------------ Grid=> 1st Row 3nd Column Begin------------- */}
-                <Col>
-                  <Row style={{ padding: "1rem 1.5rem" }}>
-                    <Col lg={{ span: 3 }}>
-                      <Phone />
-                    </Col>
-                    <Col>
-                      Mobile
-                      <br />
-                      Phone Data
-                    </Col>
-                  </Row>
-                </Col>
-                {/* ------------ Grid=> 1st Row 3nd Column End------------- */}
+                {gridItems.map((gridItem, id) => {
+                  if (id === 8) {
+                    return (
+                      <Col key={id} lg={{ span: 4 }}>
+                        <Row style={{ padding: "1rem 0rem" }}>
+                          <Col style={{ textAlign: "center" }} lg={{ span: 3 }}>
+                            {gridItem.svg}
+                          </Col>
+                          <Col style={{ textAlign: "left", paddingTop: 10 }}>
+                            {gridItem.name}
+                          </Col>
+                        </Row>
+                      </Col>
+                    );
+                  } else if ((id + 1) % 3 === 0) {
+                    return (
+                      <Col
+                        key={id}
+                        lg={{ span: 4 }}
+                        style={{ borderBottom: "1px solid #616680" }}
+                      >
+                        <Row style={{ padding: "2rem 1rem" }}>
+                          <Col style={{ textAlign: "center" }} lg={{ span: 3 }}>
+                            {gridItem.svg}
+                          </Col>
+                          <Col style={{ textAlign: "left" }}>
+                            {gridItem.name}
+                          </Col>
+                        </Row>
+                      </Col>
+                    );
+                  } else if (id >= 6) {
+                    return (
+                      <Col
+                        key={id}
+                        lg={{ span: 4 }}
+                        style={{
+                          borderRight: "2px solid #616680",
+                        }}
+                      >
+                        <Row style={{ padding: "1rem 0rem" }}>
+                          <Col style={{ textAlign: "center" }} lg={{ span: 3 }}>
+                            {gridItem.svg}
+                          </Col>
+                          <Col style={{ textAlign: "left", paddingTop: 10 }}>
+                            {gridItem.name}
+                          </Col>
+                        </Row>
+                      </Col>
+                    );
+                  } else {
+                    return (
+                      <Col
+                        key={id}
+                        lg={{ span: 4 }}
+                        style={{
+                          borderRight: "2px solid #616680",
+                          borderBottom: "1px solid #616680",
+                        }}
+                      >
+                        <Row style={{ padding: "1rem 0rem" }}>
+                          <Col style={{ textAlign: "center" }} lg={{ span: 3 }}>
+                            {gridItem.svg}
+                          </Col>
+                          <Col style={{ textAlign: "left", paddingTop: 10 }}>
+                            {gridItem.name}
+                          </Col>
+                        </Row>
+                      </Col>
+                    );
+                  }
+                })}
               </Row>
               {/* ------------ Grid=> 1st Row End------------- */}
-              <Divider sx={{ border: "1px solid rgba(112,112,112,1)" }} />
-              {/* ------------ Grid=> 2nd Row Begin------------- */}
-              <Row>
-                {/* ------------ Grid=> 2nd Row 1st column Begin------------- */}
-                <Col
-                  style={{ borderRight: "2px solid rgba(112,112,112,0.25)" }}
-                >
-                  <Row style={{ padding: "1rem 1.5rem" }}>
-                    <Col lg={{ span: 3 }}>
-                      <Building />
-                    </Col>
-                    <Col>
-                      Multi-Source
-                      <br />
-                      Intent
-                    </Col>
-                  </Row>
-                </Col>
-                {/* ------------ Grid=> 2nd Row 1st column End------------ */}
-                {/* ------------ Grid=> 2nd Row 2nd column Begin------------- */}
-                <Col
-                  style={{ borderRight: "2px solid rgba(112,112,112,0.25)" }}
-                >
-                  <Row style={{ padding: "1rem 1.5rem" }}>
-                    <Col lg={{ span: 3 }}>
-                      <Nucleus />
-                    </Col>
-                    <Col style={{ alignItems: "center" }}>Technographics</Col>
-                  </Row>
-                </Col>
-                {/* ------------ Grid=> 2nd Row 2nd column End------------ */}
-                {/* ------------ Grid=> 2nd Row 3rd column Begin------------- */}
-                <Col>
-                  <Row style={{ padding: "1rem 1.5rem" }}>
-                    <Col lg={{ span: 3 }}>
-                      <Eye style={{ alignItems: "center" }} />
-                    </Col>
-                    <Col>
-                      Unlimited In-app
-                      <br />
-                      Views
-                    </Col>
-                  </Row>
-                </Col>
-                {/* ------------ Grid=> 2nd Row 3rd column End------------- */}
-              </Row>
-              {/* ------------ Grid=> 2nd Row End------------- */}
-              <Divider sx={{ border: "1px solid rgba(112,112,112,1)" }} />
-              {/* ------------ Grid=> 3rd Row Begin------------ */}
-              <Row>
-                {/* ------------ Grid=> 3rd Row 1st Colum Begin------------ */}
-                <Col
-                  style={{ borderRight: "2px solid rgba(112,112,112,0.25)" }}
-                >
-                  <Row style={{ padding: "1rem 1.5rem" }}>
-                    <Col lg={{ span: 3 }}>
-                      <Puzzle />
-                    </Col>
-                    <Col>
-                      Chrome
-                      <br />
-                      Extension
-                    </Col>
-                  </Row>
-                </Col>
-                {/* ------------ Grid=> 3rd Row 1st Colum End------------ */}
-                {/* ------------ Grid=> 3rd Row 2nd Colum Begin------------ */}
-                <Col
-                  style={{ borderRight: "2px solid rgba(112,112,112,0.25)" }}
-                >
-                  <Row style={{ padding: "1rem 1.5rem" }}>
-                    <Col lg={{ span: 3 }}>
-                      <Verified />
-                    </Col>
-                    <Col>
-                      Real-Time
-                      <br />
-                      Verification
-                    </Col>
-                  </Row>
-                </Col>
-                {/* ------------ Grid=> 3rd Row 2nd Colum End------------ */}
-                {/* ------------ Grid=> 3rd Row 3rd Column Begin------------ */}
-                <Col>
-                  <Row style={{ padding: "1rem 1.5rem" }}>
-                    <Col lg={{ span: 3 }}>
-                      <Zoom />
-                    </Col>
-                    <Col>
-                      Advanced
-                      <br />
-                      Search
-                    </Col>
-                  </Row>
-                </Col>
-                {/* ------------ Grid=> 3rd Row 3rd Column End------------ */}
-              </Row>
-              {/* ------------ Grid=> 3rd Row End------------ */}
             </Row>
             {/* -------------Grid End ----------------------------------*/}
           </Row>
-          <Divider sx={{ borderColor: "#61680", borderWidth: 1, opacity: 1 }} />
         </Row>
         {/* ---------------Second Row End------------------- */}
         {/* ----------------THIRD ROW BEGIN------------------- */}
@@ -491,20 +441,12 @@ const App = () => {
                     <span
                       style={{
                         fontFamily: "PlusJakartaSans-Bold",
-                        fontSize: 40,
+                        fontSize: 35,
                       }}
                     >
                       50
                     </span>
-                    <span
-                      style={{
-                        verticalAlign: "top",
-                        marginTop: 7,
-                        // display: "inline-block",
-                      }}
-                    >
-                      /User/Month
-                    </span>
+                    <span>/User/Month</span>
                   </Col>
                   <Col lg={{ span: 5, marginTop: 10 }}>
                     <span
@@ -597,15 +539,13 @@ const App = () => {
                     <span
                       style={{
                         fontFamily: "PlusJakartaSans-Bold",
-                        fontSize: 40,
+                        fontSize: 35,
                       }}
                     >
                       125
                     </span>
                     <span
                       style={{
-                        verticalAlign: "top",
-                        marginTop: 7,
                         display: "inline-block",
                       }}
                     >
@@ -704,15 +644,13 @@ const App = () => {
                     <span
                       style={{
                         fontFamily: "PlusJakartaSans-Bold",
-                        fontSize: 40,
+                        fontSize: 35,
                       }}
                     >
                       200
                     </span>
                     <span
                       style={{
-                        verticalAlign: "top",
-                        marginTop: 7,
                         display: "inline-block",
                       }}
                     >
